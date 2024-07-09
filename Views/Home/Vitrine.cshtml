@@ -6,23 +6,29 @@
   <div id="vitrine-container">
     <table class="table">
       <tbody>
-
         <div class="card mb-3">
           <div class="row g-0">
-            <div class="col-md-3">
+            <div class="col-md-3" id="card-image">
               <img src="https://picsum.photos/200" class="img-fluid rounded-start">
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
+            <div class="col-md-8" id="card-content">
+              <div class="card-body" id="card-body">
+                <h5 class="card-title text-center" id="card-title">São Carlos</h5>
+                <h6>Atrativos</h6>
+                <p class="card-text" id="card-atrativos">Texto de atrativos aqui</p>
+                <div class="d-flex justify-content-around">
+                  <span id="card-origem">Origem: Araraquara/SP</span>
+                  <span id="card-destino">Destino: São Carlos/SP</span>
+                </div>
+
+                <div class="text-body-secondary d-flex justify-content-around">
+                  <span id="card-saida">dd/mm/yyyy - 00:00</span>
+                  <span id="card-retorno">dd/mm/yyyy - 00:00</span>
+                </div>
+              </div>            
             </div>
           </div>
         </div>
-
       </tbody>
     </table>
   </div>

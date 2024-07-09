@@ -151,3 +151,38 @@ body {
   border-radius: 5px;
   
 }
+
+/* Cards  */
+
+.card {
+  padding: 5px;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+}
+
+#card-title {
+  margin: 0;
+}
+
+#card-content {
+  width: 75%;
+  max-width: 75%;
+}
+
+#card-body {
+  height: 100%;
+}
+
+#card-image {
+  width: 25%;
+}
+
+#card-image img{
+  height: 100%;
+}
+
+#card-atrativos {
+  height: 40%;
+  width: 100%;
+}
