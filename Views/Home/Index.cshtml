@@ -2,7 +2,7 @@
     ViewData["Title"] = "Início";
 }
 <div class="container text-center d-flex justify-content-center align-items-center">
-    <div class="border border-success" id="index-btn-home">
+    <div class="border border-danger" id="index-btn-home">
         Home
     </div>
     <div class="d-flex justify-content-center align-items-center" id="menu-index">
@@ -25,7 +25,7 @@
                     <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                    <form asp-controller="Home" asp-action="Test" method="post">
+                    <form asp-controller="Home" asp-action="MenuUsuario" method="post">
                         <div>
                             <label class="form-label" for="login-input">Login</label>
                             <input class="form-control" type="text" id="login-input">

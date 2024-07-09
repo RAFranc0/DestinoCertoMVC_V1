@@ -16,9 +16,9 @@ namespace DestinoCertoMVC.Controllers
             return View();
         }
 
-        public IActionResult Test()
+        public IActionResult MenuUsuario()
         {
-            return View("Privacy");
+            return View();
         }
 
         public IActionResult Vitrine()
