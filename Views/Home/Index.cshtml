@@ -12,7 +12,8 @@
                     data-bs-target="#modal-login">Login</button>
             </div>
             <div id="menu-index-btn-vitrine">
-                <button type="button" class="btn btn-light" id="btn-vitrine" onclick="window.location.href='@Url.Action("Vitrine", "Home")'">Vitrine</button>
+                <button type="button" class="btn btn-light" id="btn-vitrine"
+                    onclick="window.location.href='@Url.Action("Vitrine", "Home")'">Vitrine</button>
             </div>
         </div>
     </div>
@@ -25,18 +26,50 @@
                     <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">
-                    <form asp-controller="Home" asp-action="MenuUsuario" method="post">
+                    <form asp-controller="Home" asp-action="LoginUsuario" method="post">
                         <div>
                             <label class="form-label" for="login-input">Login</label>
-                            <input class="form-control" type="text" id="login-input">
+                            <input class="form-control" type="text" id="login-input" name="Login" required>
                         </div>
                         <div>
                             <label class="form-label" for="senha-input">Senha</label>
-                            <input class="form-control" type="password" id="senha-input">
+                            <input class="form-control" type="password" id="senha-input" name="Senha" required>
                         </div>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                         <button type="submit" class="btn btn-primary">Log-in</button>
                     </form>
+                    <!-- Modal de erro -->
+                    <div class="modal fade" id="modal-erro" tabindex="-1" aria-labelledby="modal-erroLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modal-erroLabel">Erro de Login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p id="mensagem-erro"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <script>
+                            // Exibir modal de erro ao recarregar a página
+                            $(document).ready(function () {
+                                $('#modal-erro').modal('show');
+                                var mensagemErro = '@Html.ValidationSummary(false, "", new { @class = "text-danger" })';
+                                $('#mensagem-erro').html(mensagemErro);
+                            });
+                        </script>
+                    }
                 </div>
             </div>
         </div>

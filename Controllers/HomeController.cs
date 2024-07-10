@@ -50,6 +50,27 @@ namespace DestinoCertoMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult LoginUsuario(LoginModel loginTry)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _context.Usuarios.FirstOrDefault(u =>
+                    u.Login == loginTry.Login && u.Senha == loginTry.Senha
+                );
+
+                if (user != null)
+                {
+                    return View("MenuUsuario");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Login ou senha incorretos.");
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
