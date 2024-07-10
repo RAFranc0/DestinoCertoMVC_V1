@@ -1,18 +1,228 @@
 @{
-  ViewData["Title"] = "Usuário";
+    ViewData["Title"] = "Usuário";
 }
 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="row" id="usuario-container">
-
         <div class="col-3" id="usuario-menu-lateral">
-            <button class="usuario-menu-btn1 usuario-menu-btn2">Adicionar</button>
-            <button class="usuario-menu-btn1 usuario-menu-btn2">Editar</button>
-            <button class="usuario-menu-btn1 usuario-menu-btn2">Listar</button>
-            <button class="usuario-menu-btn1 usuario-menu-btn2">Excluir</button>
+            <button class="usuario-menu-btn1 usuario-menu-btn2" id="usuario-menu-btn-adicionar">Adicionar</button>
+            <button class="usuario-menu-btn1 usuario-menu-btn2" id="usuario-menu-btn-editar">Editar</button>
+            <button class="usuario-menu-btn1 usuario-menu-btn2" id="usuario-menu-btn-listar">Listar</button>
+            <button class="usuario-menu-btn1 usuario-menu-btn2" id="usuario-menu-btn-excluir">Excluir</button>
         </div>
         <div class="col-9" id="usuario-tela">
-            tela
+
+            <div id="usuario-menu-tela-adicionar">
+                <h5 class="text-center mb-2">Adicionar pacote</h5>
+                <div class="d-flex justify-content-center align-items-center">
+                    <form method="post" id="form-usuario-adicionar">
+                        <div class="mb-3 row">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="origem" class="col-sm-2 col-form-label">Origem</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="origem" name="origem">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="destino" class="col-sm-2 col-form-label">Destino</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="destino" name="destino">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="atrativos" class="col-sm-2 col-form-label">Atrativos</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="atrativos" name="atrativos" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="saida" class="col-sm-2 col-form-label">Saída</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" class="form-control" id="saida" name="saida">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="retorno" class="col-sm-2 col-form-label">Retorno</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" class="form-control" id="retorno" name="retorno">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-10 offset-sm-2 text-end">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="usuario-menu-tela-editar">
+                <h5 class="text-center mb-2">Editar pacote</h5>
+                <div class="d-flex justify-content-center align-items-center">
+                    <form method="post" id="form-usuario-editar">
+                        <div class="mb-3 row">
+                            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="origem" class="col-sm-2 col-form-label">Origem</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="origem" name="origem">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="destino" class="col-sm-2 col-form-label">Destino</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="destino" name="destino">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="atrativos" class="col-sm-2 col-form-label">Atrativos</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="atrativos" name="atrativos" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="saida" class="col-sm-2 col-form-label">Saída</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" class="form-control" id="saida" name="saida">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="retorno" class="col-sm-2 col-form-label">Retorno</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" class="form-control" id="retorno" name="retorno">
+                            </div>
+                        </div>
+                    </form>
+
+                    <form id="form-usuario-editar-anterior">
+                        <fieldset class="m-0" disabled>
+                            <div class="mb-3 row">
+                                <div>
+                                    <input type="text" class="form-control" id="nome" name="nome">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div>
+                                    <input type="text" class="form-control" id="origem" name="origem">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div>
+                                    <input type="text" class="form-control" id="destino" name="destino">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div>
+                                    <textarea class="form-control" id="atrativos" name="atrativos" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div>
+                                    <input type="datetime-local" class="form-control" id="saida" name="saida">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div>
+                                    <input type="datetime-local" class="form-control" id="retorno" name="retorno">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="me-3 text-end">
+                    <button type="submit" class="btn btn-primary" id="form-usuario-editar-btn">Enviar</button>
+                </div>
+            </div>
+
+            <div id="usuario-menu-tela-listar">
+                <h5 class="text-center mb-2">Listar pacote(s)</h5>
+                <div id="usuario-menu-listar-lista">
+                    <table class="table">
+                        <tbody>
+                            <div class="card mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-3" id="card-image">
+                                        <img src="https://picsum.photos/200" class="img-fluid rounded-start">
+                                    </div>
+                                    <div class="col-md-8" id="card-content">
+                                        <div class="position-absolute top-0 end-0 me-2" id="card-id ">
+                                            Id: 
+                                        </div>
+                                        <div class="card-body" id="card-body">
+                                            <h5 class="card-title text-center" id="card-title">São Carlos</h5>
+                                            <h6>Atrativos</h6>
+                                            <p class="card-text" id="card-atrativos">Texto de atrativos aqui</p>
+                                            <div class="d-flex justify-content-around">
+                                                <span id="card-origem">Origem: Araraquara/SP</span>
+                                                <span id="card-destino">Destino: São Carlos/SP</span>
+                                            </div>
+
+                                            <div class="text-body-secondary d-flex justify-content-around">
+                                                <span id="card-saida">dd/mm/yyyy - 00:00</span>
+                                                <span id="card-retorno">dd/mm/yyyy - 00:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="usuario-menu-tela-excluir">
+                <h5 class="text-center mb-2">Excluir pacote(s)</h5>
+                <div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Id</span>
+                        <input type="number" class="form-control" placeholder="Digite o Id do pacote"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3" id="card-image">
+                            <img src="https://picsum.photos/200" class="img-fluid rounded-start">
+                        </div>
+                        <div class="col-md-8" id="card-content">
+                            <div class="position-absolute top-0 end-0 me-2" id="card-id">
+                                Id:
+                            </div>
+                            <div class="card-body" id="card-body">
+                                <h5 class="card-title text-center" id="card-title">São Carlos</h5>
+                                <h6>Atrativos</h6>
+                                <p class="card-text" id="card-atrativos">Texto de atrativos aqui</p>
+                                <div class="d-flex justify-content-around">
+                                    <span id="card-origem">Origem: Araraquara/SP</span>
+                                    <span id="card-destino">Destino: São Carlos/SP</span>
+                                </div>
+
+                                <div class="text-body-secondary d-flex justify-content-around">
+                                    <span id="card-saida">dd/mm/yyyy - 00:00</span>
+                                    <span id="card-retorno">dd/mm/yyyy - 00:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center me-3">
+                    <input type="checkbox" class="btn-check" id="menu-excluir-btn-check" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="menu-excluir-btn-check">Confirmar?</label><br>
+
+                    <button class="usuario-menu-btn1 usuario-menu-btn2" id="btn-excluir">Excluir</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
