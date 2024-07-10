@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Teste Db";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Usuários</h1>
+    <ul>
+        @foreach (var usuario in ViewBag.Usuarios)
+        {
+            <li>@usuario.Nome (@usuario.Login)</li>
+        }
+    </ul>
+
+    <h1 class="display-4">Pacotes</h1>
+    <ul>
+        @foreach (var pacote in ViewBag.Pacotes)
+        {
+            <li>@pacote.Nome: @pacote.Origem -> @pacote.Destino (Saída: @pacote.Saida, Retorno: @pacote.Retorno)</li>
+        }
+    </ul>
+</div>
