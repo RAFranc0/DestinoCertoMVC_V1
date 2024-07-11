@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DestinoCertoMVC.Data;
 using DestinoCertoMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,17 +18,6 @@ namespace DestinoCertoMVC.Controllers
         public HomeController(DCDbContext context)
         {
             _context = context;
-        }
-
-        public IActionResult TesteDb()
-        {
-            var usuarios = _context.Usuarios.ToList();
-            var pacotes = _context.Pacotes.ToList();
-
-            ViewBag.Usuarios = usuarios;
-            ViewBag.Pacotes = pacotes;
-
-            return View();
         }
 
         public IActionResult Index()
@@ -48,38 +38,6 @@ namespace DestinoCertoMVC.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [HttpPost]
-        public IActionResult LoginUsuario(LoginModel loginTry)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = _context.Usuarios.FirstOrDefault(u =>
-                    u.Login == loginTry.Login && u.Senha == loginTry.Senha
-                );
-
-                if (user != null)
-                {
-                    return View("MenuUsuario");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Login ou senha incorretos.");
-                }
-            }
-            return RedirectToAction("Index", "Home");
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(
-                new ErrorViewModel
-                {
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-                }
-            );
         }
     }
 }

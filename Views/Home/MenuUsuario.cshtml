@@ -15,41 +15,41 @@
             <div id="usuario-menu-tela-adicionar">
                 <h5 class="text-center mb-2">Adicionar pacote</h5>
                 <div class="d-flex justify-content-center align-items-center">
-                    <form method="post" id="form-usuario-adicionar">
+                    <form method="post" id="form-usuario-adicionar" asp-action="AdicionarPacote" asp-controller="Pacotes">
                         <div class="mb-3 row">
                             <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nome" name="nome">
+                                <input type="text" class="form-control" id="nome" name="nome" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="origem" class="col-sm-2 col-form-label">Origem</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="origem" name="origem">
+                                <input type="text" class="form-control" id="origem" name="origem" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="destino" class="col-sm-2 col-form-label">Destino</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="destino" name="destino">
+                                <input type="text" class="form-control" id="destino" name="destino" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="atrativos" class="col-sm-2 col-form-label">Atrativos</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="atrativos" name="atrativos" rows="3"></textarea>
+                                <textarea class="form-control" id="atrativos" name="atrativos" rows="3" required></textarea>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="saida" class="col-sm-2 col-form-label">Saída</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="saida" name="saida">
+                                <input type="datetime-local" class="form-control" id="saida" name="saida" required>
                             </div>
                         </div>
                         <div class="mb-3 row">
                             <label for="retorno" class="col-sm-2 col-form-label">Retorno</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" class="form-control" id="retorno" name="retorno">
+                                <input type="datetime-local" class="form-control" id="retorno" name="retorno" required>
                             </div>
                         </div>
                         <div class="row">

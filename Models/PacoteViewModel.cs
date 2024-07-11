@@ -12,8 +12,6 @@ namespace DestinoCertoMVC.Models
         public DateTime Saida { get; set; }
         public DateTime Retorno { get; set; }
         public int UsuarioId { get; set; }
-        
-        // Propriedade de navegação para a relação com Usuario
         public UsuarioViewModel Usuario { get; set; }
     }
 }

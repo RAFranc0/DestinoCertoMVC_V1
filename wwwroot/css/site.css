@@ -77,13 +77,6 @@ body {
 }
 
 /* Estilo da página inicial (Index) */
-#index-btn-home {
-  height: 80px;
-  width: 80px;
-  position: absolute;
-  top: 75px;
-  left: 25px;
-}
 
 #menu-index {
   height: 450px;
@@ -121,6 +114,11 @@ body {
 
 #login-input, #senha-input {
   margin-bottom: 15px;
+}
+
+#login-error-msg {
+  position: absolute;
+  bottom: 25%;
 }
 
 /* Vitrine Container */
