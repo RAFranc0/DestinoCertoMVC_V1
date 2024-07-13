@@ -6,29 +6,32 @@
   <div id="vitrine-container">
     <table class="table">
       <tbody>
-        <div class="card mb-3">
+        @foreach(var pacote in ViewBag.Pacotes)
+        {
+          <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-3" id="card-image">
               <img src="https://picsum.photos/200" class="img-fluid rounded-start">
             </div>
             <div class="col-md-8" id="card-content">
               <div class="card-body" id="card-body">
-                <h5 class="card-title text-center" id="card-title">São Carlos</h5>
+                <h5 class="card-title text-center" id="card-title">@pacote.Nome</h5>
                 <h6>Atrativos</h6>
-                <p class="card-text" id="card-atrativos">Texto de atrativos aqui</p>
+                <p class="card-text" id="card-atrativos">@pacote.Atrativos</p>
                 <div class="d-flex justify-content-around">
-                  <span id="card-origem">Origem: Araraquara/SP</span>
-                  <span id="card-destino">Destino: São Carlos/SP</span>
+                  <span id="card-origem">Origem: @pacote.Origem</span>
+                  <span id="card-destino">Destino: @pacote.Destino</span>
                 </div>
 
                 <div class="text-body-secondary d-flex justify-content-around">
-                  <span id="card-saida">dd/mm/yyyy - 00:00</span>
-                  <span id="card-retorno">dd/mm/yyyy - 00:00</span>
+                  <span id="card-saida">@pacote.Saida.ToString("dd/MM/yyyy - HH:mm")</span>
+                  <span id="card-retorno">@pacote.Retorno.ToString("dd/MM/yyyy - HH:mm")</span>
                 </div>
               </div>            
             </div>
           </div>
         </div>
+        }
       </tbody>
     </table>
   </div>

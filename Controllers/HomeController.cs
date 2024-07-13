@@ -27,11 +27,13 @@ namespace DestinoCertoMVC.Controllers
 
         public IActionResult MenuUsuario()
         {
+            ViewBag.Pacotes = _context.Pacotes.ToList();
             return View();
         }
 
         public IActionResult Vitrine()
         {
+            ViewBag.Pacotes = _context.Pacotes.ToList();
             return View();
         }
 
